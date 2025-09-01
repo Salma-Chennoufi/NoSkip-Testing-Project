@@ -13,9 +13,9 @@
         <parameter name="os" value="Linux"/>
 
         <classes>
-            <class name="testCases.RegistrationTest"/>
+            <!--<class name="testCases.RegistrationTest"/>-->
             <class name="testCases.LoginTest"/>
-            <class name="testCases.LoginDDT"/>
+            <!--<class name="testCases.LoginDDT"/>-->
         </classes>
     </test>
 
@@ -25,9 +25,9 @@
         <parameter name="os" value="Linux"/>
 
         <classes>
-            <class name="testCases.RegistrationTest"/>
+            <!--<class name="testCases.RegistrationTest"/>-->
             <class name="testCases.LoginTest"/>
-            <class name="testCases.LoginDDT"/>
+            <!--<class name="testCases.LoginDDT"/>-->
         </classes>
     </test>
 </suite>

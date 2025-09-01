@@ -36,15 +36,21 @@ public class LoginDDT extends BaseClass {
                     dp.clickProfileIcon();
                     dp.clickBtnLogout();
                     Assert.assertTrue(true);
-                } else
+                } else {
+                    lp.clearEmail();
+                    lp.clearPassword();
                     Assert.fail();
+                }
             } else if(expectedResult.equalsIgnoreCase("Invalid")) {
                 if (targetPage) {
                     dp.clickProfileIcon();
                     dp.clickBtnLogout();
                     Assert.fail();
-                } else
+                } else{
+                    lp.clearEmail();
+                    lp.clearPassword();
                     Assert.assertTrue(true);
+                }
             }
         } catch (Exception ex) {
             Assert.fail();

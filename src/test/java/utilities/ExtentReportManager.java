@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -72,7 +73,9 @@ public class ExtentReportManager implements ITestListener {
         test.log(Status.INFO, result.getThrowable().getMessage());
 
         try {
-            String imgPath = new BaseClass().captureScreen(result.getName());
+            BaseClass base = (BaseClass) result.getInstance(); //Récupérer le driver de l’instance du test
+            WebDriver driver = base.getDriver();
+            String imgPath = base.captureScreen(result.getName(), driver);
             test.addScreenCaptureFromPath(imgPath);
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +90,7 @@ public class ExtentReportManager implements ITestListener {
     public void onFinish(ITestContext testContext) {
         extent.flush();
 
-        String pathOfExtentReport = ".\\reports\\"+repName;
+        String pathOfExtentReport = "reports/"+repName;
         File extentReport = new File(pathOfExtentReport);
 
         try{

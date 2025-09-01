@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="MySuite" thread-count="5" parallel="tests">
+<suite name="CrossBrowserSuite" parallel="tests">
 
     <listeners>
         <listener class-name="utilities.ExtentReportManager"/>
@@ -12,7 +12,8 @@
         <parameter name="os" value="Windows"/>
 
         <classes>
-            <class name="testCases.RegistrationTest"/>
+            <!--<class name="testCases.RegistrationTest"/>-->
+            <class name="testCases.LoginTest"/>
         </classes>
     </test>
 
@@ -21,7 +22,8 @@
         <parameter name="os" value="Windows"/>
 
         <classes>
-            <class name="testCases.RegistrationTest"/>
+            <!--<class name="testCases.RegistrationTest"/>-->
+            <class name="testCases.LoginTest"/>
         </classes>
     </test>
 
@@ -30,7 +32,8 @@
         <parameter name="os" value="Windows"/>
 
         <classes>
-            <class name="testCases.RegistrationTest"/>
+            <!--<class name="testCases.RegistrationTest"/>-->
+            <class name="testCases.LoginTest"/>
         </classes>
     </test>
 </suite>

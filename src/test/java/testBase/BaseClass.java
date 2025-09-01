@@ -28,11 +28,11 @@ import java.util.Properties;
 // Common class required for every test case
 public class BaseClass {
 
-    public static WebDriver driver; // Make it a common variable across multiple objects
+    public WebDriver driver; // Make it a common variable across multiple objects
     public Logger logger;
     public Properties prop;
 
-    @BeforeClass //(groups = {"Sanity", "Master", "Regression", "DataDriven"})
+    @BeforeClass(groups = {"Sanity", "Master", "Regression", "DataDriven"})
     @Parameters({"os", "browser"})
     public void setUp(String os, String browser) throws IOException {
 
@@ -60,7 +60,7 @@ public class BaseClass {
                 case "firefox": capabilities.setBrowserName("firefox"); break;
                 default: System.out.println("No matching browser"); return;
             }
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/"), capabilities);
         }
 
         if (prop.getProperty("execution_env").equalsIgnoreCase("local")) {
@@ -69,7 +69,7 @@ public class BaseClass {
                 case "chrome": driver = new ChromeDriver(); break;
                 case "firefox": driver = new FirefoxDriver(); break;
                 case "edge": driver = new EdgeDriver(); break;
-                default: System.out.println("Invalid browser name.");; return;
+                default: System.out.println("Invalid browser name."); return;
 
             }
         }
@@ -80,25 +80,30 @@ public class BaseClass {
 
     }
 
-    @AfterClass //(groups = {"Sanity", "Master", "Regression", "DataDriven"})
+    @AfterClass(groups = {"Sanity", "Master", "Regression", "DataDriven"})
     public void tearDown(){
         driver.quit();
     }
 
 
-    public String captureScreen(String tname) throws IOException {
+    public String captureScreen(String tname, WebDriver driver) throws IOException {
 
-        String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
-        String targetFilePath = ".\\screenshots\\" + tname + "_" + timeStamp + ".png";
+        String targetFilePath = "screenshots/" + tname + "_" + timeStamp + ".png";
         File targetFile = new File(targetFilePath);
 
         FileUtils.copyFile(sourceFile, targetFile);
 
-        return targetFilePath;
+        return targetFile.getAbsolutePath();
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
 
 }

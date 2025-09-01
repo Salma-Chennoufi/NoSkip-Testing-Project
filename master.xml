@@ -12,9 +12,9 @@
         <parameter name="os" value="Windows"/>
 
         <classes>
-            <class name="testCases.RegistrationTest"/>
-            <class name="testCases.LoginTest"/>
-            <class name="testCases.LoginDDT"/>
+             <class name="testCases.LoginTest"/>
+            <!--<class name="testCases.RegistrationTest"/>
+            <class name="testCases.LoginDDT"/>-->
         </classes>
     </test>
 </suite>

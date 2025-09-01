@@ -2,13 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Grouping Suite">
-    
+
     <groups>
         <run>
-            <include name="Master"/>
-            <!-- <include name="Sanity"/> -->
-            <!-- <include name="Regression"/> -->
-            <!-- <exclude name=""/>-->
+             <include name="Sanity"/>
+            <!-- <include name="Regression"/>
+             <exclude name="Regression"/>-->
          </run>
      </groups>
 
@@ -22,9 +21,9 @@
          <parameter name="os" value="Windows"/>
 
          <classes>
-             <class name="testCases.RegistrationTest"/>
+            <!-- <class name="testCases.RegistrationTest"/> -->
              <class name="testCases.LoginTest"/>
              <class name="testCases.LoginDDT"/>
-         </classes>
-     </test>
- </suite>
+          </classes>
+      </test>
+  </suite>
