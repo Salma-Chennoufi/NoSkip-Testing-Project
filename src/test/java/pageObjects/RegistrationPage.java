@@ -30,8 +30,6 @@ public class RegistrationPage extends BasePage{
     @FindBy(css = "button[type='submit']")
     WebElement btnSinscrire;
 
-    @FindBy(xpath = "")
-    WebElement popupMsg;
 
 
     public void clickBtnInscription() {
@@ -58,11 +56,4 @@ public class RegistrationPage extends BasePage{
         btnSinscrire.click();
     }
 
-    public String getPopupMsg(){
-        try {
-            return popupMsg.getText();
-        } catch (Exception ex) {
-            return (ex.getMessage());
-        }
-    }
 }

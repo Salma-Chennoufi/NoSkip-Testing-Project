@@ -1,5 +1,12 @@
 package testCases;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pageObjects.DashboardPage;
+import pageObjects.LoginPage;
+import testBase.BaseClass;
+import utilities.DataProviders;
+
 /*
 Data is valid - login success - test pass - logout
                 login failed - test fail
@@ -7,13 +14,6 @@ Data is valid - login success - test pass - logout
 Data is invalid - login success - test fail - logout
                   login failed - test pass
  */
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import pageObjects.DashboardPage;
-import pageObjects.LoginPage;
-import testBase.BaseClass;
-import utilities.DataProviders;
 
 public class LoginDDT extends BaseClass {
 

@@ -18,10 +18,9 @@ public class LoginTest extends BaseClass {
             lp.setEmail(prop.getProperty("email"));
             lp.setPassword(prop.getProperty("password"));
             lp.clickLogin();
-
+            logger.info("******* Login button clicked ******");
             DashboardPage dp = new DashboardPage(driver);
             boolean targetPage = dp.isDashboardPageDisplayed();
-
             Assert.assertTrue(targetPage);
         } catch (Exception ex) {
             Assert.fail();

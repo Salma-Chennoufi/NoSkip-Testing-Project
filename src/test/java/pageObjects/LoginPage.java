@@ -38,4 +38,9 @@ public class LoginPage extends BasePage {
         btnLogin.click();
      }
 
+     public void login(String email, String password){
+         setEmail(email);
+         setPassword(password);
+         clickLogin();
+     }
 }

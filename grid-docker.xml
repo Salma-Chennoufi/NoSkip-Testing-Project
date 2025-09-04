@@ -15,19 +15,19 @@
         <classes>
             <!--<class name="testCases.RegistrationTest"/>-->
             <class name="testCases.LoginTest"/>
-            <!--<class name="testCases.LoginDDT"/>-->
-        </classes>
-    </test>
+            <!-- <class name="testCases.LoginDDT"/>-->
+         </classes>
+     </test>
 
-    <test name="Linux-Firefox">
+     <test name="Linux-Firefox">
 
-        <parameter name="browser" value="firefox"/>
-        <parameter name="os" value="Linux"/>
+         <parameter name="browser" value="firefox"/>
+         <parameter name="os" value="Linux"/>
 
-        <classes>
-            <!--<class name="testCases.RegistrationTest"/>-->
+         <classes>
+             <!--<class name="testCases.RegistrationTest"/>-->
             <class name="testCases.LoginTest"/>
-            <!--<class name="testCases.LoginDDT"/>-->
-        </classes>
-    </test>
-</suite>
+             <!--<class name="testCases.LoginDDT"/>-->
+         </classes>
+     </test>
+ </suite>

@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import pageObjects.LoginPage;
 
 import java.io.File;
 import java.io.FileReader;
@@ -31,6 +32,7 @@ public class BaseClass {
     public WebDriver driver; // Make it a common variable across multiple objects
     public Logger logger;
     public Properties prop;
+    private boolean loginPerformed = false;
 
     @BeforeClass(groups = {"Sanity", "Master", "Regression", "DataDriven"})
     @Parameters({"os", "browser"})
@@ -85,6 +87,22 @@ public class BaseClass {
         driver.quit();
     }
 
+    public void LoginForTest() {
+        if (!loginPerformed) {
+            try {
+                logger.info("******* Performing login for test ******");
+                LoginPage loginPage = new LoginPage(driver);
+                loginPage.login(prop.getProperty("email"), prop.getProperty("password"));
+                loginPerformed = true;
+
+            } catch (Exception e) {
+                logger.error("Login failed: ", e);
+            }
+        } else {
+            logger.info("Already logged in");
+        }
+    }
+
 
     public String captureScreen(String tname, WebDriver driver) throws IOException {
 
@@ -93,7 +111,7 @@ public class BaseClass {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
-        String targetFilePath = "screenshots/" + tname + "_" + timeStamp + ".png";
+        String targetFilePath = System.getProperty("user.dir") +  "/screenshots/" + tname + "_" + timeStamp + ".png";
         File targetFile = new File(targetFilePath);
 
         FileUtils.copyFile(sourceFile, targetFile);
