@@ -8,7 +8,7 @@ import testBase.BaseClass;
 
 public class LoginTest extends BaseClass {
 
-    @Test(groups = {"Sanity", "Master"})
+    @Test(groups = {"Sanity", "Master"}, testName = "NTP-17")
     public void loginTest(){
 
         logger.info("******* Starting LoginTest ******");

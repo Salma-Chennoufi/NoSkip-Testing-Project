@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class RegistrationTest extends BaseClass {
 
-    @Test(groups = {"Regression", "Master"})
+    @Test(groups = {"Regression", "Master"}, testName = "NTP-18")
     public void testRegistration(){
 
         logger.info("******* Starting RegistrationTest *******");
@@ -43,7 +43,6 @@ public class RegistrationTest extends BaseClass {
             }
         } catch (Exception e) {
             logger.error("Test failed...");
-            logger.debug("Debug logs...");
             Assert.fail();
         }
 

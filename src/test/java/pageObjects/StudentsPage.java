@@ -34,6 +34,12 @@ public class StudentsPage extends BasePage {
     @FindBy(xpath = "//tbody//tr")
     List<WebElement> studentsTable;
 
+    @FindBy(xpath = "(//td)[2]")
+    WebElement studentName;
+
+    @FindBy(xpath = "//button[normalize-space()='Marquer']")
+    WebElement btnMarquer;
+
 
     public void  clickBtnEtudiants() {
         btnEtudiants.click();
@@ -41,8 +47,14 @@ public class StudentsPage extends BasePage {
     public void  clickBtnImporter() {
         btnImporter.click();
     }
-    public String  selectClass() {
+    public String selectClass() {
         Select drpClass = new Select(drpClassEle);
+        drpClass.selectByIndex(1);
+        List<WebElement> options =drpClass.getOptions();
+        return options.get(1).getText();
+    }
+    public String selectClassToShow() {
+        Select drpClass = new Select(drpSelectClass);
         drpClass.selectByIndex(1);
         List<WebElement> options =drpClass.getOptions();
         return options.get(1).getText();
@@ -61,7 +73,10 @@ public class StudentsPage extends BasePage {
         List<WebElement> rows = studentsTable;
         return rows.size();
     }
-
-
-
+    public void  clickBtnMarquer() {
+        btnMarquer.click();
+    }
+    public String getStudentName() {
+        return studentName.getText();
+    }
 }
