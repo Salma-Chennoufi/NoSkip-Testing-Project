@@ -5,6 +5,7 @@
 
     <listeners>
         <listener class-name="utilities.ExtentReportManager"/>
+        <listener class-name="app.getxray.xray.testng.listeners.XrayListener" />
     </listeners>
 
     <test name="Test">
