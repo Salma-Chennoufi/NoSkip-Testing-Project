@@ -1,5 +1,6 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,8 @@ import java.util.UUID;
 
 public class RegistrationTest extends BaseClass {
 
-    @Test(groups = {"Regression", "Master"}, testName = "NTP-18")
+    @XrayTest(key = "NTP-18")
+    @Test(groups = {"Regression", "Master"})
     public void testRegistration(){
 
         logger.info("******* Starting RegistrationTest *******");

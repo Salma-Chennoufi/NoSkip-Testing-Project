@@ -1,5 +1,6 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.DashboardPage;
@@ -8,7 +9,8 @@ import testBase.BaseClass;
 
 public class LoginTest extends BaseClass {
 
-    @Test(groups = {"Sanity", "Master"}, testName = "NTP-17")
+    @XrayTest(key = "NTP-17")
+    @Test(groups = {"Sanity", "Master"})
     public void loginTest(){
 
         logger.info("******* Starting LoginTest ******");

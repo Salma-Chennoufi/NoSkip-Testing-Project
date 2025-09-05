@@ -100,6 +100,12 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.18.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/app.getxray/xray-testng-extensions -->
+        <dependency>
+            <groupId>app.getxray</groupId>
+            <artifactId>xray-testng-extensions</artifactId>
+            <version>0.4.0</version>
+        </dependency>
     </dependencies>
 
 </project>
