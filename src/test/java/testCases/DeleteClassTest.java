@@ -19,6 +19,7 @@ public class DeleteClassTest extends BaseClass {
             ClassesPage cp = new ClassesPage(driver);
             cp.clickBtnClasses();
             driver.navigate().refresh();
+            Thread.sleep(2000);
             logger.info("******* Capturing class info *******");
             String className = cp.getClassName();
             logger.info("******* Class name is: " + className);
@@ -30,7 +31,7 @@ public class DeleteClassTest extends BaseClass {
             cp.clickBtnSupprimer();
             driver.switchTo().alert().accept();
             Thread.sleep(2000);
-            if (cp.isClassPresentOnce(className, module, year)){
+            if (cp.isClassDisplayed(className, module, year)){
                 Assert.fail();
             }else
                 Assert.assertTrue(true);

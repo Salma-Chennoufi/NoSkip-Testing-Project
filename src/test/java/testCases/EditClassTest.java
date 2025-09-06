@@ -28,7 +28,7 @@ public class EditClassTest extends BaseClass {
             cp.clearTxtAnneeScolaire();
             cp.setTxtEditYear(year);
             cp.clickBtnEnregistrer();
-
+            logger.info("******* Validation *******");
             if (cp.getClassName().equals(className)  &&  cp.getModule().equals(module) && cp.getYear().equals(year)){
                 Assert.assertTrue(true);
             }else
