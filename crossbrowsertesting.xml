@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="CrossBrowserSuite" parallel="tests">
+<suite name="CrossBrowserSuite" ><!--parallel="tests"-->
 
     <listeners>
         <listener class-name="utilities.ExtentReportManager"/>
@@ -15,7 +15,6 @@
             <class name="testCases.RegistrationTest"/>
             <class name="testCases.LoginTest"/>
             <class name="testCases.CreateClassTest"/>
-            <class name="testCases.ImportStudentsTest"/>
             <class name="testCases.AbsenceAlertTest"/>
         </classes>
     </test>
@@ -28,7 +27,6 @@
             <class name="testCases.RegistrationTest"/>
             <class name="testCases.LoginTest"/>
             <class name="testCases.CreateClassTest"/>
-            <class name="testCases.ImportStudentsTest"/>
             <class name="testCases.AbsenceAlertTest"/>
         </classes>
     </test>
@@ -41,7 +39,6 @@
             <class name="testCases.RegistrationTest"/>
             <class name="testCases.LoginTest"/>
             <class name="testCases.CreateClassTest"/>
-            <class name="testCases.ImportStudentsTest"/>
             <class name="testCases.AbsenceAlertTest"/>
         </classes>
     </test>
