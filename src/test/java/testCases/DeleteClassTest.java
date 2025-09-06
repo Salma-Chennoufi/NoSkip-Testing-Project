@@ -1,11 +1,14 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.ClassesPage;
 import testBase.BaseClass;
 
 public class DeleteClassTest extends BaseClass {
+
+    @XrayTest(key = "NTP-25")
     @Test(groups = "Master")
     public void deleteClassTest(){
         logger.info("******* Starting DeleteClassTest *******");

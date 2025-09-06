@@ -1,5 +1,6 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.ClassesPage;
@@ -8,10 +9,11 @@ import utilities.DataProviders;
 
 public class EditClassTest extends BaseClass {
 
+    @XrayTest(key = "NTP-24")
     @Test(dataProvider = "EditClassData",  dataProviderClass = DataProviders.class, groups = {"Master"})
     public void testEditClass(String className, String module, String year) {
         logger.info("******* Starting EditClassTest *******");
-        logger.info("******* Logging in *******");
+        logger.info("******* Login *******");
         try {
             LoginForTest();
             ClassesPage cp = new ClassesPage(driver);

@@ -13,15 +13,12 @@ import utilities.DataProviders;
 
 import java.time.Duration;
 
-public class CreateClassTest extends BaseClass {
+public class CreateClassDDT extends BaseClass {
 
-    @XrayTest(key = "NTP-40")
-    @Test(groups = {"Master, Sanity"})
-    public void testCreateClass(){
-        logger.info("******* Starting CreateClassTest ******");
-        String className = "GI";
-        String module = "Java";
-        String year = "2025";
+    @XrayTest(key = "NTP-23")
+    @Test(dataProvider = "CreateClassData",  dataProviderClass = DataProviders.class, groups = {"Master, DataDriven"})
+    public void testCreateClass(String className, String module, String year, String expectedResult){
+        logger.info("******* Starting CreateClassDDT ******");
         logger.info("******* Login******");
         try {
             LoginForTest();
@@ -40,10 +37,22 @@ public class CreateClassTest extends BaseClass {
             alert.accept();
             logger.info("******* Alert accepted");
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[normalize-space()='Liste des classes']")));
-            Assert.assertTrue(cp.isClassDisplayed(className, module, year));
+            if (expectedResult.equalsIgnoreCase("Valid")){
+                if (cp.isClassPresentOnce(className, module, year)){
+                    Assert.assertTrue(true);
+                }else {
+                    Assert.fail();
+                }
+            } else if (expectedResult.equalsIgnoreCase("Invalid")){
+                if (!cp.isClassPresentOnce(className, module, year)|| cp.isClassEmpty(className, module, year)){
+                    Assert.fail();
+                } else {
+                    Assert.assertTrue(true);
+                }
+            }
         }catch (Exception e){
             Assert.fail();
         }
-        logger.info("******* Ending CreateClassTest ******");
+       logger.info("******* Ending CreateClassDDT ******");
     }
 }

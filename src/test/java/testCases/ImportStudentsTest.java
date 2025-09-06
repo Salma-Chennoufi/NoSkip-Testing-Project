@@ -1,10 +1,10 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.StudentsPage;
 import testBase.BaseClass;
@@ -12,6 +12,9 @@ import testBase.BaseClass;
 import java.time.Duration;
 
 public class ImportStudentsTest extends BaseClass {
+
+    //@XrayTest(key = "NTP-30") // invalid
+    @XrayTest(key = "NTP-29") // valid
     @Test(groups = {"Master"})
     public void testImportStudents() {
         logger.info("******* Starting testImportStudents ******");

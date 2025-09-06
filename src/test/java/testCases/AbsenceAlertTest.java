@@ -1,5 +1,6 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.AlertsPage;
@@ -8,6 +9,7 @@ import testBase.BaseClass;
 
 public class AbsenceAlertTest extends BaseClass {
 
+    @XrayTest(key = "NTP-34")
     @Test(groups = {"Master"})
     public void testAbsenceAlert() {
         logger.info("******* Starting AbsenceAlertTest *******");

@@ -96,6 +96,10 @@ public class ClassesPage extends BasePage {
         }
         return counter == 1;
     }
+    public boolean isClassDisplayed(String className, String module, String year) {
+        String xpath = "//table//tr[td[text()='" + className + "'] and td[text()='" + module + "'] and td[text()='" + year + "']]";
+        return driver.findElement(By.xpath(xpath)).isDisplayed();
+    }
     public boolean isClassEmpty(String className, String module, String year) {
         return className == null || className.isEmpty() || module == null || module.isEmpty() || year == null || year.isEmpty();
     }

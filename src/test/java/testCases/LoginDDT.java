@@ -1,5 +1,6 @@
 package testCases;
 
+import app.getxray.xray.testng.annotations.XrayTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.DashboardPage;
@@ -17,6 +18,7 @@ Data is invalid - login success - test fail - logout
 
 public class LoginDDT extends BaseClass {
 
+    @XrayTest(key = "NTP-14")
     @Test(dataProvider = "LoginData",  dataProviderClass = DataProviders.class, groups = {"DataDriven"})
     public void testLoginDDT(String email, String password, String expectedResult){
 
