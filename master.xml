@@ -15,11 +15,11 @@
         <classes>
            <!-- <class name="testCases.RegistrationTest"/>
             <class name="testCases.LoginTest"/>-->
-             <class name="testCases.CreateClassTest"/>
-            <!-- <class name="testCases.EditClassTest"/>
+            <!-- <class name="testCases.CreateClassTest"/>
+             <class name="testCases.EditClassTest"/>
              <class name="testCases.DeleteClassTest"/>-->
-            <class name="testCases.ImportStudentsTest"/>
-           <!--  <class name="testCases.AbsenceAlertTest"/>-->
+            <!-- <class name="testCases.ImportStudentsTest"/>-->
+             <class name="testCases.AbsenceAlertTest"/>
             <!--<class name="testCases.LoginDDT"/>
             <class name="testCases.CreateClassDDT"/>-->
         </classes>
